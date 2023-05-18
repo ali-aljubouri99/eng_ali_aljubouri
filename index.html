@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./cssFile/normalize.css">
     <!-- css style -->
     <link rel="stylesheet" href="./cssFile/style.css">
+    <!-- Swipper File -->
+    <link rel="stylesheet" href="./cssFile/swiper-bundle.min.css">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +37,7 @@
     <section class="landing" id="home">
         <div class="continer">
             <div class="info">
-                <h1>Hello, my name is "ali"<br/> <span>i'm :</span></h1>
+                <h1>Hello, my name is "ali" <br> i'm :</h1>
                 <p>Computer Technology Eng. <br/> Front-End web developer</p>
                 <a href="#my_projects">View my work</a>
             </div>
@@ -90,73 +92,20 @@
         <div class="main-heading">
             <h1>my projects</h1>
         </div>
-        <div class="continer">
-            <div class="box_card">
-                <div class="card">
+        <div class="continer swiper">
+            <div class="continer-slider">
+            <div class="box_card swiper-wrapper">
+                <!-- <div class="card swiper-slide">
                     <img src="./images/proj1.png">
                     <div class="info_card">
                         <h3>Personal website</h3>
                         <a href="https://ali-aljubouri99.github.io/nathan_web/" target="_blank">Watch the site</a>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="./images/proj2.png">
-                    <div class="info_card">
-                        <h3>Atr website</h3>
-                        <a href="https://ali-aljubouri99.github.io/kasper/" target="_blank">Watch the site</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/proj3.png">
-                    <div class="info_card">
-                        <h3>food website</h3>
-                        <a href="https://ali-aljubouri99.github.io/food_land/" target="_blank">Watch the site</a>
-                    </div>
-                </div>
-                <div class="card hidd">
-                    <img src="./images/proj4.png">
-                    <div class="info_card">
-                        <h3>coffee website</h3>
-                        <a href="https://ali-aljubouri99.github.io/coffee.shop/" target="_blank">Watch the site</a>
-                    </div>
-                </div>
-                <div class="card hidd">
-                    <img src="./images/proj5.png">
-                    <div class="info_card">
-                        <h3>vegetable store website</h3>
-                        <a href="https://ali-aljubouri99.github.io/vegetable_store/" target="_blank">Watch the site</a>
-                    </div>
-                </div>
-                <div class="card hidd">
-                    <img src="./images/proj6.png">
-                    <div class="info_card">
-                        <h3>food website</h3>
-                        <a href="https://ali-aljubouri99.github.io/fast_food/" target="_blank">Watch the site</a>
-                    </div>
-                </div>
-                <div class="card hidd">
-                    <img src="./images/proj7.png">
-                    <div class="info_card">
-                        <h3>university website</h3>
-                        <a href="https://ali-aljubouri99.github.io/university/" target="_blank">Watch the site</a>
-                    </div>
-                </div>
-                <div class="card hidd">
-                    <img src="./images/proj8.png">
-                    <div class="info_card">
-                        <h3>Clothing store website</h3>
-                        <a href="https://ali-aljubouri99.github.io/clothes.shop/" target="_blank">Watch the site</a>
-                    </div>
-                </div>
-                <div class="card hidd">
-                    <img src="./images/proj9.png">
-                    <div class="info_card">
-                        <h3>Mobile Store website</h3>
-                        <a href="https://ali-aljubouri99.github.io/mobile-store/" target="_blank">Watch the site</a>
-                    </div>
-                </div>
+                </div> -->
             </div>
-            <button class="show_more">show more</button>
+        </div>
+        <div class="swiper-pagination bullits"></div>
+            <!-- <button class="show_more">show more</button> -->
         </div>
     </section>
     <!-- end projects -->
@@ -197,6 +146,7 @@
         </div>
     </footer>
     <!-- end footer -->
+    <script src="./swiper-bundle.min.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>
