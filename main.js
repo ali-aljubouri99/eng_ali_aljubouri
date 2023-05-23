@@ -62,7 +62,8 @@ async function getData(apiLink) {
             card.classList.add("card", "swiper-slide");
             
             let imgCard = document.createElement("img");
-            imgCard.setAttribute("src", `./images/proj${i + 1}.png`);
+            // imgCard.setAttribute("src", `./images/proj${i + 1}.png`);
+            imgCard.setAttribute("src", `./images/${data[i].name}.png`);
             
             let info_card = document.createElement("div");
             info_card.classList.add("info_card");
@@ -85,6 +86,7 @@ async function getData(apiLink) {
                 card.remove();
             }
         }
+        console.log(data)
     }
     catch (reject) {
         console.log(reject)
