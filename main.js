@@ -5,48 +5,48 @@ let navBar = document.querySelector("nav");
 let links = document.querySelectorAll(".navigation a");
 let toggel_menu = document.querySelector(".toggel_menu");
 
-window.onscroll = function() {
-    if (window.scrollY >= 400) {
-        header.style.backgroundColor = "#fff"
-        logo.style.color = "#0a192f";
-        links.forEach((ele) => {
-            ele.style.color = "#0a192f"
-        });
-        toggel_menu.style.color = "#0a192f";
-    } else {
-        header.style.backgroundColor = "#0a192f";
-        logo.style.color = "#ccd6f6";
-        links.forEach((ele) => {
-            ele.style.color = "#ccd6f6";
-        });
-        toggel_menu.style.color = "#ccd6f6";
-    }
-}
+window.onscroll = function () {
+  if (window.scrollY >= 400) {
+    header.style.backgroundColor = "#fff";
+    logo.style.color = "#0a192f";
+    links.forEach((ele) => {
+      ele.style.color = "#0a192f";
+    });
+    toggel_menu.style.color = "#0a192f";
+  } else {
+    header.style.backgroundColor = "#0a192f";
+    logo.style.color = "#ccd6f6";
+    links.forEach((ele) => {
+      ele.style.color = "#ccd6f6";
+    });
+    toggel_menu.style.color = "#ccd6f6";
+  }
+};
 
-toggel_menu.addEventListener("click",function() {
-    navBar.classList.toggle("active");
-    toggel_menu.classList.toggle("fa-xmark");
+toggel_menu.addEventListener("click", function () {
+  navBar.classList.toggle("active");
+  toggel_menu.classList.toggle("fa-xmark");
 });
 
 links.forEach((ele) => {
-    ele.addEventListener("click", function() {
-        navBar.classList.toggle("active");
-        toggel_menu.classList.toggle("fa-xmark");
-    })
-})
+  ele.addEventListener("click", function () {
+    navBar.classList.toggle("active");
+    toggel_menu.classList.toggle("fa-xmark");
+  });
+});
 // end header
 
 // start skills
 let spans = document.querySelectorAll(".skill div span");
-window.addEventListener("scroll", function() {
-    spans.forEach((span) => {
-        if (window.scrollY > 280) {
-            span.style.width = span.dataset.costom;
-        } else {
-            span.style.width = "0%";
-        }
-    })
-})
+window.addEventListener("scroll", function () {
+  spans.forEach((span) => {
+    if (window.scrollY > 280) {
+      span.style.width = span.dataset.costom;
+    } else {
+      span.style.width = "0%";
+    }
+  });
+});
 // end skills
 
 // start projects
@@ -54,72 +54,110 @@ window.addEventListener("scroll", function() {
 
 let box_card = document.querySelector(".box_card");
 async function getData(apiLink) {
-    try {
-        let myData = await fetch(apiLink);
-        let data = await myData.json();
-        for (let i = 0; i < data.length; i++) {
-            let card = document.createElement("div");
-            card.classList.add("card", "swiper-slide");
-            
-            let imgCard = document.createElement("img");
-            // imgCard.setAttribute("src", `./images/proj${i + 1}.png`);
-            imgCard.setAttribute("src", `./images/${data[i].name}.png`);
-            
-            let info_card = document.createElement("div");
-            info_card.classList.add("info_card");
-            let nameCard = document.createElement("h3");
-            nameCard.innerHTML = data[i].name;
-            info_card.prepend(nameCard);
+  try {
+    let myData = await fetch(apiLink);
+    let data = await myData.json();
+    for (let i = 0; i < data.length; i++) {
+      let card = document.createElement("div");
+      card.classList.add("card", "swiper-slide");
 
-            let linkCard = document.createElement("a");
-            linkCard.setAttribute("href", `https://ali-aljubouri99.github.io/${data[i].name}/`)
-            linkCard.setAttribute("target", "_black");
-            linkCard.innerHTML = "Watch the site";
-            info_card.append(linkCard);
-            
-            card.appendChild(imgCard);
-            card.appendChild(info_card);
-            
-            box_card.append(card);
+      let imgCard = document.createElement("img");
+      // imgCard.setAttribute("src", `./images/proj${i + 1}.png`);
+      imgCard.setAttribute("src", `./images/${data[i].name}.png`);
 
-            if (data[i].name === "eng_ali_aljubouri" || data[i].name === "the-rosary") {
-                card.remove();
-            }
-        }
-        console.log(data)
+      let info_card = document.createElement("div");
+      info_card.classList.add("info_card");
+      let nameCard = document.createElement("h3");
+      nameCard.innerHTML = data[i].name;
+      info_card.prepend(nameCard);
+
+      let linkCard = document.createElement("a");
+      linkCard.setAttribute(
+        "href",
+        `https://ali-aljubouri99.github.io/${data[i].name}/`
+      );
+      linkCard.setAttribute("target", "_black");
+      linkCard.innerHTML = "Watch the site";
+      info_card.append(linkCard);
+
+      card.appendChild(imgCard);
+      card.appendChild(info_card);
+
+      box_card.append(card);
+
+      if (
+        data[i].name === "eng_ali_aljubouri" ||
+        data[i].name === "the-rosary"
+      ) {
+        card.remove();
+      }
     }
-    catch (reject) {
-        console.log(reject)
-    }
+
+    // Outside github repos
+    let cardOut = document.createElement("div");
+    cardOut.classList.add("card", "swiper-slide");
+
+    let img_outside = document.createElement("img");
+    img_outside.setAttribute("src", "./images/elect_shop.png");
+    cardOut.append(img_outside);
+
+    let infoCardOut = document.createElement("div");
+    infoCardOut.classList.add("info_card");
+
+    let h3CardOut = document.createElement("h3");
+    h3CardOut.innerHTML = "Eletbox Shop";
+    infoCardOut.append(h3CardOut);
+
+    let linkCardOut = document.createElement("a");
+    linkCardOut.setAttribute(
+      "href",
+      "https://aljubouri-electshop.netlify.app/"
+    );
+    linkCardOut.setAttribute("target", "_blank");
+    linkCardOut.innerHTML = "Watch the site";
+    infoCardOut.append(linkCardOut);
+
+    cardOut.append(infoCardOut);
+    box_card.prepend(cardOut);
+    // box_card.prepend(`
+    //   <div class="card swiper-slide">
+    //                 <img src="./images/proj1.png">
+    //                 <div class="info_card">
+    //                     <h3>Personal website</h3>
+    //                     <a href="https://ali-aljubouri99.github.io/nathan_web/" target="_blank">Watch the site</a>
+    //                 </div>
+    //             </div>
+    // `);
+  } catch (reject) {
+    console.log(reject);
+  }
 }
 
-getData("https://api.github.com/users/ali-aljubouri99/repos")
-
+getData("https://api.github.com/users/ali-aljubouri99/repos");
 
 // Swiper Cards Projects
 var swiper = new Swiper(".continer-slider", {
-    slidesPerView: 3,
-    spaceBetween: 25,
-    grabCursor: "true",
-    fade: "true",
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
+  slidesPerView: 3,
+  spaceBetween: 25,
+  grabCursor: "true",
+  fade: "true",
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
     },
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-        },
-        500: {
-            slidesPerView: 2,
-        },
-        950: {
-            slidesPerView: 3,
-        }
-    }
+    500: {
+      slidesPerView: 2,
+    },
+    950: {
+      slidesPerView: 3,
+    },
+  },
 });
-
 
 // let show_btn = document.querySelector(".show_more");
 // let cardsHide = document.querySelectorAll(".box_card .hidd");
@@ -127,7 +165,6 @@ var swiper = new Swiper(".continer-slider", {
 // let leftCards = [AllCards[0], AllCards[3], AllCards[6], AllCards[9]];
 // let centerCards = [AllCards[1], AllCards[4], AllCards[7]];
 // let rightCards = [AllCards[2], AllCards[5], AllCards[8]];
-
 
 // show_btn.addEventListener("click", function() {
 //     cardsHide.forEach((ele) => {
@@ -142,7 +179,7 @@ var swiper = new Swiper(".continer-slider", {
 // });
 
 // window.addEventListener("scroll", function() {
-//     // 
+//     //
 //     if (document.documentElement.clientWidth >= 1200) {
 //         if (window.scrollY <= 1100) {
 //             leftCards.forEach((ele) => {
