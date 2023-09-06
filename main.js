@@ -57,6 +57,34 @@ async function getData(apiLink) {
   try {
     let myData = await fetch(apiLink);
     let data = await myData.json();
+
+    // Outside github repos
+    let cardOut = document.createElement("div");
+    cardOut.classList.add("card", "swiper-slide");
+
+    let img_outside = document.createElement("img");
+    img_outside.setAttribute("src", "./images/elect_shop.png");
+    cardOut.append(img_outside);
+
+    let infoCardOut = document.createElement("div");
+    infoCardOut.classList.add("info_card");
+
+    let h3CardOut = document.createElement("h3");
+    h3CardOut.innerHTML = "Eletbox Shop";
+    infoCardOut.append(h3CardOut);
+
+    let linkCardOut = document.createElement("a");
+    linkCardOut.setAttribute(
+      "href",
+      "https://aljubouri-electshop.netlify.app/"
+    );
+    linkCardOut.setAttribute("target", "_blank");
+    linkCardOut.innerHTML = "Watch the site";
+    infoCardOut.append(linkCardOut);
+
+    cardOut.append(infoCardOut);
+    box_card.prepend(cardOut);
+
     for (let i = 0; i < data.length; i++) {
       let card = document.createElement("div");
       card.classList.add("card", "swiper-slide");
@@ -92,42 +120,6 @@ async function getData(apiLink) {
         card.remove();
       }
     }
-
-    // Outside github repos
-    let cardOut = document.createElement("div");
-    cardOut.classList.add("card", "swiper-slide");
-
-    let img_outside = document.createElement("img");
-    img_outside.setAttribute("src", "./images/elect_shop.png");
-    cardOut.append(img_outside);
-
-    let infoCardOut = document.createElement("div");
-    infoCardOut.classList.add("info_card");
-
-    let h3CardOut = document.createElement("h3");
-    h3CardOut.innerHTML = "Eletbox Shop";
-    infoCardOut.append(h3CardOut);
-
-    let linkCardOut = document.createElement("a");
-    linkCardOut.setAttribute(
-      "href",
-      "https://aljubouri-electshop.netlify.app/"
-    );
-    linkCardOut.setAttribute("target", "_blank");
-    linkCardOut.innerHTML = "Watch the site";
-    infoCardOut.append(linkCardOut);
-
-    cardOut.append(infoCardOut);
-    box_card.prepend(cardOut);
-    // box_card.prepend(`
-    //   <div class="card swiper-slide">
-    //                 <img src="./images/proj1.png">
-    //                 <div class="info_card">
-    //                     <h3>Personal website</h3>
-    //                     <a href="https://ali-aljubouri99.github.io/nathan_web/" target="_blank">Watch the site</a>
-    //                 </div>
-    //             </div>
-    // `);
   } catch (reject) {
     console.log(reject);
   }
